@@ -12,12 +12,38 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
-        Product::create([
-            'name' => $request->get('name'),
-            'image' => $request->get('image'),
-            'desc' => $request->get('desc')
+        $data = $request->validate([
+            'name' => 'required',
+            'image' => 'nullable',
+            'desc' => 'nullable|max:255'
         ]);
 
+        $newProduct = Product::create($data);
+
+        return redirect()->route('dashboard');
+    }
+
+    public function edit(Product $product){
+        //dd($product);
+        return view('products.edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product){
+        $data = $request->validate([
+            'name' => 'required',
+            'image' => 'nullable',
+            'desc' => 'nullable|max:255'
+        ]);
+
+        $product->update($data);
+
+        return redirect()->route('dashboard');
+    }
+
+    public function delete(Product $product){
+        //dd($product);
+
+        $product->delete();
         return redirect()->route('dashboard');
     }
 

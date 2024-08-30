@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name')->nullable(false);
-            $table->string('desc');
-            $table->longText('image');
+            $table->string('desc',512)->nullable(true);
+            $table->longText('image')->nullable(true);
             $table->unsignedInteger('likes')->default(0);
         });
     }
