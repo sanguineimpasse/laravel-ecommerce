@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1 class="my-5">Editing a product</h1>
+<h1 class="my-5">Editing <span class="text-primary"> {{ $product->name }} </span> </h1>
 
 @if($errors -> any())
 <div class="my-5 p-4 rounded bg-danger-subtle">

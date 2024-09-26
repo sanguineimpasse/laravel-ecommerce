@@ -13,10 +13,12 @@
             height: 20vh;
             overflow-y: auto;
         }
+        .card{
+            transition: 0.3s;
+        }
         .card:hover{
             cursor: pointer;
-            box-shadow: 4px 4px 16px rgba(0,0,0,0.15);
-            transition:box-shadow 0.2s ease;
+            box-shadow: 0px 4px 8px rgba(0,0,0, 0.15);
         }
     </style>
     @vite('resources/sass/app.scss', 'resources/js/app.js')
